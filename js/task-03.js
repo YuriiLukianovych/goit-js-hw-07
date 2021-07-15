@@ -12,3 +12,16 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const ulContainer = document.querySelector('#gallery');
+
+function createMarkup(array) {
+  const markup = array.map(el => {
+    return `<li class="list-item"><img src="${el.url}" alt="${el.alt}"></li>`;
+  });
+
+  return markup;
+}
+
+ulContainer.insertAdjacentHTML('afterbegin', createMarkup(images).join(''));
+ulContainer.classList.add('list');
